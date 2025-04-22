@@ -13,7 +13,7 @@ const db = mysql.createConnection({
     database: 'driving_license'
 });
 
-// Get all results111
+// get all results111
 app.get('/api/results', (req, res) => {
     db.query('SELECT * FROM test_results', (err, result) => {
         if (err) return res.status(500).json(err);
@@ -21,7 +21,7 @@ app.get('/api/results', (req, res) => {
     });
 });
 
-// Create a new result
+// create a new result
 app.post('/api/results', (req, res) => {
     const {
         first_name,
@@ -60,7 +60,7 @@ app.post('/api/results', (req, res) => {
     });
 });
 
-// Update a result
+// update a result
 app.put('/api/results/:id', (req, res) => {
     const { id } = req.params;
     const {
@@ -110,7 +110,7 @@ app.put('/api/results/:id', (req, res) => {
     );
 });
 
-// Delete a result
+// delete a result
 app.delete('/api/results/:id', (req, res) => {
     const { id } = req.params;
     db.query('DELETE FROM test_results WHERE id = ?', [id], (err, result) => {

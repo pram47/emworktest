@@ -23,7 +23,7 @@ function App() {
   const fetchResults = () => {
     axios.get('http://localhost:3001/api/results').then((res) => {
       setResults(res.data);
-      calculateDailyStats(res.data); // Calculate daily stats after data is fetched
+      calculateDailyStats(res.data); 
     });
   };
 
@@ -33,15 +33,15 @@ function App() {
 
   const handleSubmit = () => {
     const payload = {
-      first_name: form.first_name || null, // Set null if missing
-      last_name: form.last_name || null, // Set null if missing
+      first_name: form.first_name || null, 
+      last_name: form.last_name || null, 
       color_blindness_test: form.color_blindness ? 1 : 0,
       long_sightedness_test: form.far_vision ? 1 : 0,
       astigmatism_test: form.astigmatism ? 1 : 0,
       body_reaction_test: form.reaction ? 1 : 0,
-      traffic_signs_score: form.traffic_signs_score || null, // Set null if missing
-      road_lines_score: form.road_lines_score || null, // Set null if missing
-      right_of_way_score: form.right_of_way_score || null, // Set null if missing
+      traffic_signs_score: form.traffic_signs_score || null, 
+      road_lines_score: form.road_lines_score || null, 
+      right_of_way_score: form.right_of_way_score || null, 
       practical_test_result: form.practical_passed ? 1 : 0,
     };
 
