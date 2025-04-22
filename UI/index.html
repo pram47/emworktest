@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Temple by Region</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div id="temple" class="templeall">
+    <h2 class="heading">TEMPLE BY REGION</h2>
+    <p class="subheading">ค้นหาข้อมูลวัดตามภูมิภาค</p>
+    <button onclick="toggleAutoplay()">เปิด/ปิด Auto Play</button>
+
+    <div class="controls">
+      <button onclick="setColumns(2)">2 คอลัมภ์</button>
+      <button onclick="setColumns(3)">3 คอลัมภ์</button>
+      <button onclick="setColumns(4)">4 คอลัมภ์</button>
+    </div>
+
+    <div class="carousel">
+      <div id="watthai" class="wat">
+        <img id="imagewatthai" class="imagewatthai2" src="temple1.jpeg" alt="ภาคเหนือ">
+        <div class="label">ภาคเหนือ</div>
+      </div>
+      <div id="watthai" class="wat">
+        <img id="imagewatthai" class="imagewatthai2" src="temple2.jpeg" alt="ภาคกลาง">
+        <div class="label">ภาคกลาง</div>
+      </div>
+      <div id="watthai" class="wat">
+        <img id="imagewatthai" class="imagewatthai2" src="temple3.jpeg" alt="ภาคตะวันออกเฉียงเหนือ">
+        <div class="label">ภาคตะวันออกเฉียงเหนือ</div>
+      </div>
+      <div id="watthai" class="wat">
+        <img id="imagewatthai" class="imagewatthai2" src="temple4.jpeg" alt="ภาคตะวันตก">
+        <div class="label">ภาคตะวันตก</div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function setColumns(count) {
+      document.querySelector('.carousel').style.gridTemplateColumns = `repeat(${count}, 1fr)`;
+    }
+    let currentIndex = 0;
+    const columnOptions = [2, 3, 4];
+    let autoplay = false;
+    let interval;
+
+    function setColumns(count) {
+        document.querySelector('.carousel').style.gridTemplateColumns = `repeat(${count}, 1fr)`;
+    }
+
+    function toggleAutoplay() {
+        autoplay = !autoplay;
+
+        if (autoplay) {
+        interval = setInterval(() => {
+            currentIndex = (currentIndex + 1) % columnOptions.length;
+            setColumns(columnOptions[currentIndex]);
+        }, 2000); // เปลี่ยนคอลัมน์ทุก 2 วินาที
+        } else {
+        clearInterval(interval);
+        }
+    }
+
+  </script>
+</body>
+</html>
+
+
